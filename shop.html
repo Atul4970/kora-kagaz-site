@@ -1,122 +1,188 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kora Kagaz | Shop</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Shop handmade sketches, paintings and eco-friendly craft from waste at Kora Kagaz." />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href="./assets/logo.png" />
 </head>
+<!-- Image Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img id="lightbox-img" src="" alt="Preview">
+</div>
+
+<script src="./script.js"></script>
+
 <body>
+
 <header class="header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><span class="brand-mark">✏️</span><span>Kora Kagaz</span></a>
+    <a class="brand" href="index.html">
+      <img src="./assets/logo.png" class="logo" alt="Kora Kagaz logo">
+      <span>Kora Kagaz</span>
+    </a>
+
     <nav class="nav">
       <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
+      <a class="active" href="shop.html">Shop</a>
       <a href="gallery.html">Sketches</a>
       <a href="craft.html">Craft from Waste</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a class="btn primary" id="whatsappTop" href="#" target="_blank" rel="noopener">WhatsApp</a>
+
+    <a class="btn primary" href="https://wa.me/918077542962" target="_blank">WhatsApp</a>
   </div>
 </header>
 
 <main>
-  <section class="section">
-    <div class="container">
-      <div class="head">
-        <h2>Shop</h2>
-        <p>All items are handmade and ready-to-buy. Limited stock (original pieces).</p>
-      </div>
 
-      <div class="row">
-        <a class="btn primary" id="payLink" href="#" target="_blank" rel="noopener">Pay Online (optional)</a>
-        <a class="btn" href="contact.html">Ask Availability</a>
-      </div>
-
-      <div class="products" style="margin-top:14px;">
-        <div class="card product">
-          <img src="assets/tulips.jpg" alt="Tulips artwork">
-          <h3>Tulips (Original)</h3>
-          <div class="meta"><span>Code: SK-01</span><span>₹799</span></div>
-          <div class="actions">
-            <button class="btn primary" data-buy data-name="Tulips (Original)" data-code="SK-01" data-price="₹799">Buy on WhatsApp</button>
-            <a class="btn" href="gallery.html">View</a>
-          </div>
-        </div>
-
-        <div class="card product">
-          <img src="assets/moon-ocean.jpg" alt="Moon & Ocean artwork">
-          <h3>Moon & Ocean (Ink Art)</h3>
-          <div class="meta"><span>Code: SK-02</span><span>₹899</span></div>
-          <div class="actions">
-            <button class="btn primary" data-buy data-name="Moon & Ocean (Ink Art)" data-code="SK-02" data-price="₹899">Buy on WhatsApp</button>
-            <a class="btn" href="gallery.html">View</a>
-          </div>
-        </div>
-
-        <div class="card product">
-          <img src="assets/birds-frame.jpg" alt="Birds newspaper frame">
-          <h3>Birds Newspaper Frame (Craft)</h3>
-          <div class="meta"><span>Code: CW-01</span><span>₹599</span></div>
-          <div class="actions">
-            <button class="btn primary" data-buy data-name="Birds Newspaper Frame (Craft)" data-code="CW-01" data-price="₹599">Buy on WhatsApp</button>
-            <a class="btn" href="craft.html">View</a>
-          </div>
-        </div>
-
-        <div class="card product">
-          <img src="assets/four-scenes.jpg" alt="Four scenes painting">
-          <h3>Four Scenes (Painting)</h3>
-          <div class="meta"><span>Code: PT-01</span><span>₹999</span></div>
-          <div class="actions">
-            <button class="btn primary" data-buy data-name="Four Scenes (Painting)" data-code="PT-01" data-price="₹999">Buy on WhatsApp</button>
-            <a class="btn" href="gallery.html">View</a>
-          </div>
-        </div>
-
-        <div class="card product">
-          <img src="assets/girl-portrait.jpg" alt="Portrait sketch">
-          <h3>Portrait Sketch</h3>
-          <div class="meta"><span>Code: SK-04</span><span>₹899</span></div>
-          <div class="actions">
-            <button class="btn primary" data-buy data-name="Portrait Sketch" data-code="SK-04" data-price="₹899">Buy on WhatsApp</button>
-            <a class="btn" href="gallery.html">View</a>
-          </div>
-        </div>
-
-        <div class="card product">
-          <img src="assets/dobby.jpg" alt="Dobby Harry Potter artwork">
-          <h3>Dobby (Harry Potter)</h3>
-          <div class="meta"><span>Code: SK-06</span><span>₹899</span></div>
-          <div class="actions">
-            <button class="btn primary" data-buy data-name="Dobby (Harry Potter)" data-code="SK-06" data-price="₹899">Buy on WhatsApp</button>
-            <a class="btn" href="gallery.html">View</a>
-          </div>
-        </div>
-      </div>
-
-      <p class="hint" style="margin-top:14px;">
-        Tip: When an item is sold, change price to “SOLD” or remove that product card.
-      </p>
+<section class="section">
+  <div class="container">
+    <div class="head">
+      <h2>Shop</h2>
+      <p>All pieces are handmade, unique, and ready to ship</p>
     </div>
-  </section>
+
+    <div class="products">
+
+      <!-- ========= SKETCHES & PAINTINGS ========= -->
+
+      <div class="card product">
+        <img src="./assets/tulips.jpeg" alt="Tulips artwork">
+        <h3>Tulips (Original)</h3>
+        <div class="meta"><span>SK-01</span><span> ₹899</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="gallery.html">View</a>
+        </div>
+      </div>
+
+      <div class="card product">
+        <img src="./assets/moon-ocean.jpeg" alt="Moon & Ocean artwork">
+        <h3>Moon & Ocean (Ink Art)</h3>
+        <div class="meta"><span>SK-02</span><span> ₹1,099</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="gallery.html">View</a>
+        </div>
+      </div>
+
+      <div class="card product">
+        <img src="./assets/four-scenes.jpeg" alt="Four scenes painting">
+        <h3>Four Scenes (Mini Set)</h3>
+        <div class="meta"><span>PT-01</span><span> ₹999</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="gallery.html">View</a>
+        </div>
+      </div>
+
+      <div class="card product">
+        <img src="./assets/magnolia.jpeg" alt="Magnolia sketch">
+        <h3>Magnolia (Pen Sketch)</h3>
+        <div class="meta"><span>SK-03</span><span> ₹1,199</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="gallery.html">View</a>
+        </div>
+      </div>
+
+      <div class="card product">
+        <img src="./assets/girl-portrait.jpeg" alt="Girl portrait sketch">
+        <h3>Girl Portrait (Graphite)</h3>
+        <div class="meta"><span>SK-04</span><span> ₹1,499</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="gallery.html">View</a>
+        </div>
+      </div>
+
+      <div class="card product">
+        <img src="./assets/dobby.jpeg" alt="Dobby fan art">
+        <h3>Dobby (Fan Art)</h3>
+        <div class="meta"><span>SK-05</span><span> ₹1,299</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="gallery.html">View</a>
+        </div>
+      </div>
+
+      <!-- ========= CRAFT FROM WASTE ========= -->
+
+      <div class="card product">
+        <img src="./assets/mirrors-set.jpeg" alt="Decorative mirror set">
+        <h3>Decorative Mirror Set (Set of 6)</h3>
+        <div class="meta"><span>CW-01</span><span> ₹799</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="craft.html">View</a>
+        </div>
+      </div>
+
+      <div class="card product">
+        <img src="./assets/flower-mirror.jpeg" alt="Flower mirror wall decor">
+        <h3>Flower Mirror Wall Decor</h3>
+        <div class="meta"><span>CW-02</span><span> ₹1,499</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="craft.html">View</a>
+        </div>
+      </div>
+
+      <div class="card product">
+        <img src="./assets/bottle-craft.png" alt="Upcycled bottle decor">
+        <h3>Upcycled Bottle Decor</h3>
+        <div class="meta"><span>CW-03</span><span> ₹599</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="craft.html">View</a>
+        </div>
+      </div>
+
+      <div class="card product">
+        <img src="./assets/red-flower-craft.png" alt="Handmade flower diya">
+        <h3>Handmade Flower Diya</h3>
+        <div class="meta"><span>CW-04</span><span> ₹699</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="craft.html">View</a>
+        </div>
+      </div>
+
+      <div class="card product">
+        <img src="./assets/birds-frame.jpeg" alt="Birds frame craft">
+        <h3>Birds Frame Wall Art</h3>
+        <div class="meta"><span>CW-05</span><span> ₹999</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/918077542962">Buy on WhatsApp</a>
+          <a class="btn" href="craft.html">View</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="sub" style="margin-top:16px;">
+      📦 Shipping charges calculated on WhatsApp • Each piece is one-of-a-kind
+    </p>
+  </div>
+</section>
+
 </main>
 
 <footer class="footer">
   <div class="container footer-grid">
-    <div class="brand"><span class="brand-mark">✏️</span><span>Kora Kagaz</span></div>
+    <p>© 2025 Kora Kagaz</p>
     <div class="small-links">
-      <a href="index.html">Home</a>
-      <a id="instaLink" href="#" target="_blank" rel="noopener">Instagram</a>
-      <a id="emailLink" href="#">Email</a>
-      <a id="whatsappFooter" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="craft.html">Craft</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <div>© <span id="year"></span></div>
   </div>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>

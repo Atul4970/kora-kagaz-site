@@ -226,3 +226,58 @@ h1{
 @media (min-width: 900px){
   .nav{display:flex}
 }
+.item img,
+.product img {
+  background: #0b0b12;
+  padding: 6px;
+  border-radius: 18px;
+}
+
+.item:hover img,
+.product:hover img {
+  box-shadow: 0 30px 60px rgba(0,0,0,.55);
+}
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: zoomIn 0.25s ease;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 36px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.card img,
+.item img {
+  cursor: zoom-in;
+}

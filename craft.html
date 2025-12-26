@@ -1,67 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kora Kagaz | Craft from Waste</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Handmade eco-friendly craft from waste by Kora Kagaz." />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href="./assets/logo.png" />
 </head>
+<!-- Image Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img id="lightbox-img" src="" alt="Preview">
+</div>
+
+<script src="./script.js"></script>
+
 <body>
+
 <header class="header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><span class="brand-mark">✏️</span><span>Kora Kagaz</span></a>
+    <a class="brand" href="index.html">
+      <img src="./assets/logo.png" class="logo" alt="Kora Kagaz logo">
+      <span>Kora Kagaz</span>
+    </a>
+
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
       <a href="gallery.html">Sketches</a>
-      <a href="craft.html">Craft from Waste</a>
+      <a class="active" href="craft.html">Craft from Waste</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a class="btn primary" id="whatsappTop" href="#" target="_blank" rel="noopener">WhatsApp</a>
+
+    <a class="btn primary" href="https://wa.me/918077542962" target="_blank">WhatsApp</a>
   </div>
 </header>
 
 <main>
-  <section class="section">
-    <div class="container">
-      <div class="head">
-        <h2>Craft from Waste</h2>
-        <p>Eco-friendly decor made from reused materials — handmade and unique.</p>
-      </div>
 
-      <div class="products">
-        <div class="card product">
-          <img src="assets/birds-frame.jpg" alt="Birds newspaper frame craft">
-          <h3>Birds on Newspaper Frame</h3>
-          <div class="meta"><span>Code: CW-01</span><span>₹599</span></div>
-          <div class="actions">
-            <button class="btn primary" data-buy data-name="Birds on Newspaper Frame" data-code="CW-01" data-price="₹599">Buy on WhatsApp</button>
-            <a class="btn" href="shop.html">Shop</a>
-          </div>
+<section class="section">
+  <div class="container">
+    <div class="head">
+      <h2>Craft from Waste</h2>
+      <p>Eco-friendly handmade decor created from reused materials</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card item">
+        <img src="./assets/mirrors-set.jpeg" alt="Decorative mirror set">
+        <div class="cap">
+          <span>Decorative Mirror Set</span>
+          <span>CW-01</span>
         </div>
       </div>
 
-      <p class="hint" style="margin-top:14px;">
-        Add more craft products the same way: photo + code + price.
-      </p>
+      <div class="card item">
+        <img src="./assets/flower-mirror.jpeg" alt="Flower mirror wall decor">
+        <div class="cap">
+          <span>Flower Mirror Wall Decor</span>
+          <span>CW-02</span>
+        </div>
+      </div>
+
+      <div class="card item">
+        <img src="./assets/bottle-craft.png" alt="Upcycled bottle decor">
+        <div class="cap">
+          <span>Upcycled Bottle Decor</span>
+          <span>CW-03</span>
+        </div>
+      </div>
+
+      <div class="card item">
+        <img src="./assets/birds-frame.jpeg" alt="Birds newspaper frame">
+        <div class="cap">
+          <span>Birds Newspaper Frame</span>
+          <span>CW-04</span>
+        </div>
+      </div>
+
+      <div class="card item">
+        <img src="./assets/red-flower-craft.png" alt="Handmade flower diya">
+        <div class="cap">
+          <span>Handmade Flower Diya</span>
+          <span>CW-05</span>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 </main>
 
 <footer class="footer">
   <div class="container footer-grid">
-    <div class="brand"><span class="brand-mark">✏️</span><span>Kora Kagaz</span></div>
+    <p>© 2025 Kora Kagaz</p>
     <div class="small-links">
+      <a href="gallery.html">Gallery</a>
       <a href="shop.html">Shop</a>
-      <a id="instaLink" href="#" target="_blank" rel="noopener">Instagram</a>
-      <a id="emailLink" href="#">Email</a>
-      <a id="whatsappFooter" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <div>© <span id="year"></span></div>
   </div>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>

@@ -77,3 +77,35 @@ setActiveNav();
 wireCommonLinks();
 wireBuyButtons();
 wireContactForm();
+
+// ================================
+// IMAGE LIGHTBOX (ADD BELOW)
+// ================================
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".lightbox .close");
+
+document.addEventListener("click", (e) => {
+  if (
+    e.target.tagName === "IMG" &&
+    e.target.closest(".card, .item, .product")
+  ) {
+    lightbox.style.display = "flex";
+    lightboxImg.src = e.target.src;
+  }
+});
+
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+}
+
+if (lightbox) {
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+}
+
