@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kora Kagaz | Contact</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">✏️</span><span>Kora Kagaz</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gallery.html">Sketches</a>
+        <a href="craft.html">Craft from Waste</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a class="btn primary" id="whatsappTop" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="head">
+          <h2>Contact</h2>
+          <p>Send us a message. WhatsApp will open with your details.</p>
+        </div>
+
+        <div class="split">
+          <div class="card box">
+            <h3>Quick links</h3>
+            <p class="hint">Instagram & email are in the footer links.</p>
+            <div class="row">
+              <a class="btn primary" id="whatsappFooter" href="#" target="_blank" rel="noopener">Message on WhatsApp</a>
+              <a class="btn" id="instaLink" href="#" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+
+          <div class="card box">
+            <h3>Contact form</h3>
+            <form id="contactForm">
+              <label>
+                Name
+                <input name="name" required placeholder="Your name">
+              </label>
+              <label>
+                Phone
+                <input name="phone" required placeholder="10-digit number">
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows="4" required placeholder="What do you want to buy? (Product code SK-01 etc.)"></textarea>
+              </label>
+              <button class="btn primary" type="submit">Send on WhatsApp</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="brand"><span class="brand-mark">✏️</span><span>Kora Kagaz</span></div>
+      <div class="small-links">
+        <a href="shop.html">Shop</a>
+        <a id="instaLink" href="#" target="_blank" rel="noopener">Instagram</a>
+        <a id="emailLink" href="#">Email</a>
+        <a id="whatsappFooter" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div>© <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
