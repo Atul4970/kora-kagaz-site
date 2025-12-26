@@ -1,8 +1,9 @@
 // ====== EDIT THESE ======
 const WHATSAPP_NUMBER = "91XXXXXXXXXX"; // e.g. 919876543210 (no +)
-const INSTAGRAM_URL = "https://instagram.com/korakagaz"; // your real IG
-const EMAIL = "korakagaz@gmail.com"; // your email
-const RAZORPAY_PAYMENT_LINK = ""; // optional: paste Razorpay payment link here
+const INSTAGRAM_URL = "https://instagram.com/korakagaz";
+const EMAIL = "korakagaz@gmail.com";
+// Optional: Paste Razorpay payment link here (if you create one)
+const RAZORPAY_PAYMENT_LINK = "";
 // ========================
 
 function waLink(message){
@@ -29,10 +30,10 @@ function wireCommonLinks(){
   if(email) email.href = `mailto:${EMAIL}`;
 
   const waTop = document.getElementById("whatsappTop");
-  if(waTop) waTop.href = waLink("Hi Kora Kagaz! I want to buy your handmade artwork. Please share available pieces and prices.");
+  if(waTop) waTop.href = waLink("Hi Kora Kagaz! I want to buy your handmade artwork. Please share available pieces & delivery details.");
 
   const waFooter = document.getElementById("whatsappFooter");
-  if(waFooter) waFooter.href = waLink("Hi Kora Kagaz! I want to buy your handmade artwork. Please share available pieces and prices.");
+  if(waFooter) waFooter.href = waLink("Hi Kora Kagaz! I want to buy your handmade artwork. Please share available pieces & delivery details.");
 }
 
 function wireBuyButtons(){
