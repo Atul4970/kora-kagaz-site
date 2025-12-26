@@ -1,122 +1,139 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kora Kagaz | Handmade Art & Craft</title>
-  <meta name="description" content="Kora Kagaz sells handmade sketches, original artwork, and eco-friendly craft from waste. Ready-to-buy collections." />
+  <meta name="description" content="Kora Kagaz – original handmade sketches and eco-friendly craft from waste." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/logo.png" />
 </head>
+
 <body>
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">✏️</span><span>Kora Kagaz</span>
-      </a>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="gallery.html">Sketches</a>
-        <a href="craft.html">Craft from Waste</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" class="logo" alt="Kora Kagaz logo">
+      <span>Kora Kagaz</span>
+    </a>
 
-      <a class="btn primary" id="whatsappTop" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    <nav class="nav">
+      <a class="active" href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="gallery.html">Sketches</a>
+      <a href="craft.html">Craft from Waste</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn primary" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">Handmade • Ready-to-buy • Sustainable</span>
+      <h1>Handmade art that<br>feels like home.</h1>
+      <p class="sub">
+        Kora Kagaz offers original handmade sketches and eco-friendly craft from waste.
+        No customization — only curated, ready pieces made with care.
+      </p>
+
+      <div class="row">
+        <a href="shop.html" class="btn primary">Explore Shop</a>
+        <a href="gallery.html" class="btn">View Gallery</a>
+      </div>
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="badge">Handmade • Ready-to-buy • Sustainable</span>
-          <h1>Handmade art that feels like home.</h1>
-          <p class="sub">
-            Kora Kagaz sells original handmade sketches and eco-friendly craft from waste.
-            No customization — only curated, ready pieces.
-          </p>
-          <div class="row">
-            <a class="btn primary" href="shop.html">Explore Shop</a>
-            <a class="btn ghost" href="gallery.html">View Gallery</a>
-          </div>
-          <p class="hint">Tap “Buy on WhatsApp” on any product to confirm availability & delivery.</p>
-        </div>
-
-        <div class="card hero-card">
-          <h3>What we sell</h3>
-          <ul class="mini">
-            <li><span>Original sketches</span><strong>Unique pieces</strong></li>
-            <li><span>Paintings</span><strong>Gift-ready</strong></li>
-            <li><span>Craft from waste</span><strong>Eco decor</strong></li>
-          </ul>
-          <p class="hint">You can add Razorpay payment link later (optional).</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="container">
-        <div class="head">
-          <h2>Featured pieces</h2>
-          <p>Highlight your best work here (you can change prices anytime).</p>
-        </div>
-
-        <div class="products">
-          <div class="card product">
-            <img src="assets/tulips.jpg" alt="Tulips artwork">
-            <h3>Tulips (Original)</h3>
-            <div class="meta"><span>Code: SK-01</span><span>₹799</span></div>
-            <div class="actions">
-              <button class="btn primary" data-buy data-name="Tulips (Original)" data-code="SK-01" data-price="₹799">Buy on WhatsApp</button>
-              <a class="btn" href="gallery.html">View</a>
-            </div>
-          </div>
-
-          <div class="card product">
-            <img src="assets/birds-frame.jpg" alt="Birds newspaper frame craft">
-            <h3>Birds Newspaper Frame</h3>
-            <div class="meta"><span>Code: CW-01</span><span>₹599</span></div>
-            <div class="actions">
-              <button class="btn primary" data-buy data-name="Birds Newspaper Frame" data-code="CW-01" data-price="₹599">Buy on WhatsApp</button>
-              <a class="btn" href="craft.html">View</a>
-            </div>
-          </div>
-
-          <div class="card product">
-            <img src="assets/dobby.jpg" alt="Dobby Harry Potter artwork">
-            <h3>Dobby (Harry Potter)</h3>
-            <div class="meta"><span>Code: SK-06</span><span>₹899</span></div>
-            <div class="actions">
-              <button class="btn primary" data-buy data-name="Dobby (Harry Potter)" data-code="SK-06" data-price="₹899">Buy on WhatsApp</button>
-              <a class="btn" href="gallery.html">View</a>
-            </div>
-          </div>
-        </div>
-
-        <p class="hint" style="margin-top:14px;">
-          Note: All items are handmade and unique. If an item is sold out, we’ll suggest similar available pieces.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="brand"><span class="brand-mark">✏️</span><span>Kora Kagaz</span></div>
-      <div class="small-links">
-        <a href="shop.html">Shop</a>
-        <a href="gallery.html">Sketches</a>
-        <a href="craft.html">Craft</a>
-        <a id="instaLink" href="#" target="_blank" rel="noopener">Instagram</a>
-        <a id="emailLink" href="#">Email</a>
-        <a id="whatsappFooter" href="#" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
-      <div>© <span id="year"></span></div>
+    <div class="card box">
+      <p class="sub">
+        Tap <b>Buy on WhatsApp</b> on any product to confirm availability & delivery.
+        Each piece is unique and limited.
+      </p>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<section class="section alt">
+  <div class="container">
+    <div class="head">
+      <h2>What we sell</h2>
+      <p>Thoughtfully created art & decor</p>
+    </div>
+
+    <div class="products">
+      <div class="card product">
+        <img src="assets/tulips.jpeg" alt="Tulips artwork">
+        <h3>Original Sketches</h3>
+        <p class="sub">Unique hand-drawn pieces</p>
+      </div>
+
+      <div class="card product">
+        <img src="assets/four-scenes.jpeg" alt="Paintings">
+        <h3>Paintings</h3>
+        <p class="sub">Gift-ready art</p>
+      </div>
+
+      <div class="card product">
+        <img src="assets/birds-frame.jpeg" alt="Craft from waste">
+        <h3>Craft from Waste</h3>
+        <p class="sub">Eco-friendly home decor</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="head">
+      <h2>Featured Pieces</h2>
+      <p>Limited & ready to ship</p>
+    </div>
+
+    <div class="grid">
+      <div class="card item">
+        <img src="assets/tulips.jpeg" alt="Tulips sketch">
+        <div class="cap">
+          <span>Tulips</span>
+          <span>SK-01</span>
+        </div>
+      </div>
+
+      <div class="card item">
+        <img src="assets/moon-ocean.jpeg" alt="Moon ocean art">
+        <div class="cap">
+          <span>Moon & Ocean</span>
+          <span>SK-02</span>
+        </div>
+      </div>
+
+      <div class="card item">
+        <img src="assets/dobby.jpeg" alt="Dobby art">
+        <div class="cap">
+          <span>Dobby</span>
+          <span>PT-01</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <p>© 2025 Kora Kagaz</p>
+    <div class="small-links">
+      <a href="gallery.html">Gallery</a>
+      <a href="craft.html">Craft</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

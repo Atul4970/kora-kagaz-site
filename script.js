@@ -1,14 +1,14 @@
 // ====== EDIT THESE ======
-const WHATSAPP_NUMBER = "91XXXXXXXXXX"; // e.g. 919876543210 (no +)
-const INSTAGRAM_URL = "https://instagram.com/korakagaz";
-const EMAIL = "korakagaz@gmail.com";
+const WHATSAPP_NUMBER = "8077542962"; // e.g. 919876543210 (no +)
+const INSTAGRAM_URL = "https://instagram.com/korakagazz7";
+const EMAIL = "korakagazart@gmail.com";
 // Optional: Paste Razorpay payment link here (if you create one)
 const RAZORPAY_PAYMENT_LINK = "";
 // ========================
 
 function waLink(message){
   const encoded = encodeURIComponent(message);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+  return `https://wa.me/${8077542962}?text=${encoded}`;
 }
 
 function setActiveNav(){
