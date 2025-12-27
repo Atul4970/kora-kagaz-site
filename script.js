@@ -8,7 +8,7 @@ const RAZORPAY_PAYMENT_LINK = "";
 
 function waLink(message){
   const encoded = encodeURIComponent(message);
-  return `https://wa.me/${8077542962}?text=${encoded}`;
+  return `https://wa.me/${918077542962}?text=${encoded}`;
 }
 
 function setActiveNav(){
@@ -116,5 +116,67 @@ const nav = document.querySelector(".nav");
 if (menuBtn && nav) {
   menuBtn.addEventListener("click", () => {
     nav.classList.toggle("mobile-open");
+  });
+}
+
+
+// ================================
+// Global Config (EDIT THIS ONCE)
+// ================================
+const WHATSAPP_NUMBER = "91XXXXXXXXXX"; // Example: 919457052437 (no +, no spaces)
+const DEFAULT_MESSAGE = "Hi! I’m interested in Kora Kagaz artwork. Please share price & availability.";
+
+// ================================
+// WhatsApp Link (All Pages)
+// ================================
+document.querySelectorAll(".whatsapp-link").forEach((btn) => {
+  const msg = btn.getAttribute("data-msg") || DEFAULT_MESSAGE;
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+  btn.setAttribute("href", url);
+});
+
+// ================================
+// Mobile Menu (All Pages)
+// ================================
+document.querySelectorAll(".header").forEach((header) => {
+  const menuBtn = header.querySelector(".menu-btn");
+  const nav = header.querySelector(".nav");
+
+  if (menuBtn && nav) {
+    menuBtn.addEventListener("click", () => {
+      nav.classList.toggle("mobile-open");
+    });
+
+    // Close menu when any nav link is clicked (mobile UX)
+    nav.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => nav.classList.remove("mobile-open"));
+    });
+  }
+});
+
+// ================================
+// Lightbox (if you already added it)
+// ================================
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".lightbox .close");
+
+document.addEventListener("click", (e) => {
+  const img = e.target;
+  if (img.tagName === "IMG" && img.closest(".card, .item, .product")) {
+    if (!lightbox || !lightboxImg) return;
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  }
+});
+
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
+    if (lightbox) lightbox.style.display = "none";
+  });
+}
+if (lightbox) {
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.style.display = "none";
   });
 }
