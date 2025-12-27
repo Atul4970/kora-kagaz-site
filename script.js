@@ -36,7 +36,7 @@ function setupWhatsAppLinks() {
 
   buttons.forEach((btn) => {
     const msg = btn.getAttribute("data-msg") || DEFAULT_MESSAGE;
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/${918077542962}?text=${encodeURIComponent(msg)}`;
 
     // Set real WA link so it never opens blank/duplicate page
     btn.setAttribute("href", url);
