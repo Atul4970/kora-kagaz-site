@@ -544,3 +544,21 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 20px;
 }
 img { cursor: zoom-in; }
+/* Force solid header (no transparency issues) */
+.header{
+  background: #0b0b12 !important;   /* solid */
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: none !important; /* remove blur transparency feel */
+}
+
+/* Mobile menu panel should be solid and visible */
+@media (max-width: 768px){
+  #siteNav{
+    background: #0b0b12 !important; /* solid */
+    border: 1px solid rgba(255,255,255,.14);
+  }
+
+  #siteNav a{
+    background: rgba(255,255,255,.06);
+  }
+}

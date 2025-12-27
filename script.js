@@ -9,7 +9,7 @@
 /* ================================
    CONFIG (EDIT ONLY THIS PART)
    ================================ */
-const WHATSAPP_NUMBER = "91XXXXXXXXXX"; 
+const WHATSAPP_NUMBER = "918077542962"; 
 // Example: "919457052437" (no +, no spaces)
 
 const DEFAULT_MESSAGE =
