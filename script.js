@@ -1,192 +1,188 @@
-// ====== EDIT THESE ======
-const WHATSAPP_NUMBER = "8077542962"; // e.g. 919876543210 (no +)
-const INSTAGRAM_URL = "https://instagram.com/korakagazz7";
-const EMAIL = "korakagazart@gmail.com";
-// Optional: Paste Razorpay payment link here (if you create one)
-const RAZORPAY_PAYMENT_LINK = "";
-// ========================
+/* =========================================================
+   Kora Kagaz - script.js (Complete)
+   Includes:
+   - WhatsApp link (all pages)
+   - Mobile menu toggle (all pages)
+   - Optional lightbox for image click (if lightbox HTML exists)
+   ========================================================= */
 
-function waLink(message){
-  const encoded = encodeURIComponent(message);
-  return `https://wa.me/${918077542962}?text=${encoded}`;
-}
+/* ================================
+   CONFIG (EDIT ONLY THIS PART)
+   ================================ */
+const WHATSAPP_NUMBER = "91XXXXXXXXXX"; 
+// Example: "919457052437" (no +, no spaces)
 
-function setActiveNav(){
-  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  document.querySelectorAll(".nav a").forEach(a=>{
-    const href = (a.getAttribute("href") || "").toLowerCase();
-    if(href === path) a.classList.add("active");
-  });
-}
-
-function wireCommonLinks(){
-  const year = document.getElementById("year");
-  if(year) year.textContent = new Date().getFullYear();
-
-  const insta = document.getElementById("instaLink");
-  if(insta) insta.href = INSTAGRAM_URL;
-
-  const email = document.getElementById("emailLink");
-  if(email) email.href = `mailto:${EMAIL}`;
-
-  const waTop = document.getElementById("whatsappTop");
-  if(waTop) waTop.href = waLink("Hi Kora Kagaz! I want to buy your handmade artwork. Please share available pieces & delivery details.");
-
-  const waFooter = document.getElementById("whatsappFooter");
-  if(waFooter) waFooter.href = waLink("Hi Kora Kagaz! I want to buy your handmade artwork. Please share available pieces & delivery details.");
-}
-
-function wireBuyButtons(){
-  document.querySelectorAll("[data-buy]").forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      const name = btn.getAttribute("data-name") || "Artwork";
-      const price = btn.getAttribute("data-price") || "";
-      const code = btn.getAttribute("data-code") || "";
-      const msg = `Hi Kora Kagaz! I want to buy:\n• Item: ${name}\n• Code: ${code}\n• Price: ${price}\n\nPlease confirm availability and delivery.`;
-      window.open(waLink(msg), "_blank");
-    });
-  });
-
-  const pay = document.getElementById("payLink");
-  if(pay){
-    if(RAZORPAY_PAYMENT_LINK && RAZORPAY_PAYMENT_LINK.trim().length > 0){
-      pay.href = RAZORPAY_PAYMENT_LINK.trim();
-      pay.style.display = "inline-flex";
-    } else {
-      pay.style.display = "none";
-    }
-  }
-}
-
-function wireContactForm(){
-  const form = document.getElementById("contactForm");
-  if(!form) return;
-
-  form.addEventListener("submit", (e)=>{
-    e.preventDefault();
-    const data = new FormData(form);
-    const name = data.get("name") || "";
-    const phone = data.get("phone") || "";
-    const message = data.get("message") || "";
-    const msg = `Hi Kora Kagaz!\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`;
-    window.open(waLink(msg), "_blank");
-  });
-}
-
-setActiveNav();
-wireCommonLinks();
-wireBuyButtons();
-wireContactForm();
-
-// ================================
-// IMAGE LIGHTBOX (ADD BELOW)
-// ================================
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.querySelector(".lightbox .close");
-
-document.addEventListener("click", (e) => {
-  if (
-    e.target.tagName === "IMG" &&
-    e.target.closest(".card, .item, .product")
-  ) {
-    lightbox.style.display = "flex";
-    lightboxImg.src = e.target.src;
-  }
-});
-
-if (closeBtn) {
-  closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-}
-
-if (lightbox) {
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-    }
-  });
-}
-
-// Mobile menu toggle
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.querySelector(".nav");
-
-if (menuBtn && nav) {
-  menuBtn.addEventListener("click", () => {
-    nav.classList.toggle("mobile-open");
-  });
-}
-
-
-// ================================
-// CONFIG (change once)
-// ================================
-const WHATSAPP_NUMBER = "918077542962"; // e.g.  (no +, no spaces)
 const DEFAULT_MESSAGE =
   "Hi! I’m interested in Kora Kagaz products. Please share price & availability.";
 
-// ================================
-// WhatsApp link - works everywhere
-// ================================
-document.querySelectorAll("a.whatsapp-link").forEach((btn) => {
-  const msg = btn.getAttribute("data-msg") || DEFAULT_MESSAGE;
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-  btn.setAttribute("href", url);
-
-  // Prevent accidental '#' issues if any page still has it
-  btn.addEventListener("click", (e) => {
-    const href = btn.getAttribute("href") || "";
-    if (href === "#" || href.trim() === "") e.preventDefault();
-  });
+/* ================================
+   Run after DOM is ready
+   ================================ */
+document.addEventListener("DOMContentLoaded", () => {
+  setupWhatsAppLinks();
+  setupMobileMenu();
+  setupLightbox(); // optional (works only if lightbox exists)
 });
 
-// ================================
-// Mobile menu toggle
-// ================================
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("siteNav");
+/* ================================
+   1) WhatsApp links (ALL PAGES)
+   How it works:
+   - Any <a> with class="whatsapp-link" will be converted to wa.me link
+   - Use data-msg="..." to customize message per button
+   ================================ */
+function setupWhatsAppLinks() {
+  const buttons = document.querySelectorAll("a.whatsapp-link");
+  if (!buttons.length) return;
 
-if (menuBtn && nav) {
+  buttons.forEach((btn) => {
+    const msg = btn.getAttribute("data-msg") || DEFAULT_MESSAGE;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+    // Set real WA link so it never opens blank/duplicate page
+    btn.setAttribute("href", url);
+
+    // If any page accidentally has href="#" prevent that behavior
+    btn.addEventListener("click", (e) => {
+      const href = btn.getAttribute("href") || "";
+      if (href.trim() === "" || href.trim() === "#") e.preventDefault();
+    });
+  });
+}
+
+/* ================================
+   2) Mobile menu toggle (ALL PAGES)
+   Works with either of these setups:
+
+   Preferred:
+   - button#menuBtn
+   - nav#siteNav
+
+   OR (fallback):
+   - .menu-toggle
+   - #navMenu
+
+   It will:
+   - toggle class "mobile-open" or "active"
+   - close menu when a link is clicked
+   ================================ */
+function setupMobileMenu() {
+  // Try first set of ids/classes (from earlier fixes)
+  let menuBtn = document.getElementById("menuBtn");
+  let nav = document.getElementById("siteNav");
+
+  // Fallback for the newer header variant
+  if (!menuBtn) menuBtn = document.getElementById("menuToggle");
+  if (!nav) nav = document.getElementById("navMenu");
+
+  // Fallback for class-based selectors
+  if (!menuBtn) menuBtn = document.querySelector(".menu-btn, .menu-toggle");
+  if (!nav) nav = document.querySelector(".nav");
+
+  if (!menuBtn || !nav) return;
+
   menuBtn.addEventListener("click", () => {
-    const open = nav.classList.toggle("mobile-open");
-    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    // Support both class names so your CSS can use either
+    nav.classList.toggle("mobile-open");
+    nav.classList.toggle("active");
+
+    // aria-expanded for accessibility (safe)
+    const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+    menuBtn.setAttribute("aria-expanded", (!expanded).toString());
   });
 
-  // Close menu after selecting a link (mobile UX)
+  // Close after clicking any nav link
   nav.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", () => {
       nav.classList.remove("mobile-open");
+      nav.classList.remove("active");
       menuBtn.setAttribute("aria-expanded", "false");
     });
   });
 }
 
-// ================================
-// Lightbox (only if you added HTML)
-// ================================
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.querySelector(".lightbox .close");
+/* ================================
+   3) Lightbox (Optional)
+   Opens image in fullscreen when clicked.
 
-document.addEventListener("click", (e) => {
-  const img = e.target;
-  if (
-    lightbox &&
-    lightboxImg &&
-    img &&
-    img.tagName === "IMG" &&
-    img.closest(".card, .item, .product")
-  ) {
-    lightbox.style.display = "flex";
-    lightboxImg.src = img.src;
+   Requirements (only if you want it):
+   Add this HTML once in every page (before </body>):
+
+   <div id="lightbox" class="lightbox" style="display:none;">
+     <button class="close" aria-label="Close">×</button>
+     <img id="lightbox-img" alt="Preview">
+   </div>
+
+   And CSS to style .lightbox (I can share if needed).
+   ================================ */
+ffunction setupLightbox() {
+  const lightbox = document.getElementById("lightbox");
+  const imgEl = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  if (!lightbox || !imgEl) return;
+
+  // Open: any image inside common containers
+  document.addEventListener("click", (e) => {
+    const img = e.target.closest("img");
+    if (!img) return;
+
+    // Only open for images that are part of products/gallery
+    const allowed = img.closest(".card, .item, .product, .gallery-grid, .products, .craft-grid, main");
+    if (!allowed) return;
+
+    // Open full
+    imgEl.src = img.src;
+    imgEl.alt = img.alt || "Kora Kagaz artwork";
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  });
+
+  // Close button
+  if (closeBtn) {
+    closeBtn.addEventListener("click", close);
   }
-});
 
-if (closeBtn && lightbox) {
-  closeBtn.addEventListener("click", () => (lightbox.style.display = "none"));
+  // Close if click outside image
   lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) lightbox.style.display = "none";
+    if (e.target === lightbox) close();
+  });
+
+  // Close on ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+
+  function close() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    imgEl.src = "";
+    document.body.style.overflow = "";
+  }
+}
+
+
+  // Close button
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
+    });
+  }
+
+  // Close when clicking outside the image
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
+    }
+  });
+
+  // Close on ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
+    }
   });
 }
