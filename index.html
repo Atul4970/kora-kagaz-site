@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kora Kagaz | Handmade Art & Craft</title>
   <meta name="description" content="Kora Kagaz – original handmade sketches and eco-friendly craft from waste." />
-  <link rel="stylesheet" href="styles.css?v=1.0" />
+  <link rel="stylesheet" href="styles.css?v=1.1" />
   <link rel="icon" href="assets/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
@@ -15,22 +15,35 @@
 <header class="header">
   <div class="container header-inner">
     <a class="brand" href="index.html">
-      <img src="assets/logo.png" class="logo" alt="Kora Kagaz logo">
+      <img src="./assets/logo.png" class="logo" alt="Kora Kagaz logo">
       <span>Kora Kagaz</span>
     </a>
 
-    <nav class="nav">
-      <a class="active" href="index.html">Home</a>
+    <nav class="nav" id="siteNav">
+      <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
       <a href="gallery.html">Sketches</a>
       <a href="craft.html">Craft from Waste</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <button class="menu-btn" aria-label="Open menu">☰</button>
-    <a class="btn primary" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
+
+    <div class="header-actions">
+      <a class="btn primary whatsapp-link"
+         data-msg="Hi! I’m interested in Kora Kagaz products. Please share price & availability."
+         href="https://wa.me/918077542962"
+         target="_blank"
+         rel="noopener">
+        WhatsApp
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+        ☰
+      </button>
+    </div>
   </div>
 </header>
+
 
 <main>
 

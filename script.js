@@ -121,41 +121,50 @@ if (menuBtn && nav) {
 
 
 // ================================
-// Global Config (EDIT THIS ONCE)
+// CONFIG (change once)
 // ================================
-const WHATSAPP_NUMBER = "91XXXXXXXXXX"; // Example: 919457052437 (no +, no spaces)
-const DEFAULT_MESSAGE = "Hi! I’m interested in Kora Kagaz artwork. Please share price & availability.";
+const WHATSAPP_NUMBER = "918077542962"; // e.g.  (no +, no spaces)
+const DEFAULT_MESSAGE =
+  "Hi! I’m interested in Kora Kagaz products. Please share price & availability.";
 
 // ================================
-// WhatsApp Link (All Pages)
+// WhatsApp link - works everywhere
 // ================================
-document.querySelectorAll(".whatsapp-link").forEach((btn) => {
+document.querySelectorAll("a.whatsapp-link").forEach((btn) => {
   const msg = btn.getAttribute("data-msg") || DEFAULT_MESSAGE;
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
   btn.setAttribute("href", url);
+
+  // Prevent accidental '#' issues if any page still has it
+  btn.addEventListener("click", (e) => {
+    const href = btn.getAttribute("href") || "";
+    if (href === "#" || href.trim() === "") e.preventDefault();
+  });
 });
 
 // ================================
-// Mobile Menu (All Pages)
+// Mobile menu toggle
 // ================================
-document.querySelectorAll(".header").forEach((header) => {
-  const menuBtn = header.querySelector(".menu-btn");
-  const nav = header.querySelector(".nav");
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("siteNav");
 
-  if (menuBtn && nav) {
-    menuBtn.addEventListener("click", () => {
-      nav.classList.toggle("mobile-open");
-    });
+if (menuBtn && nav) {
+  menuBtn.addEventListener("click", () => {
+    const open = nav.classList.toggle("mobile-open");
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
 
-    // Close menu when any nav link is clicked (mobile UX)
-    nav.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", () => nav.classList.remove("mobile-open"));
+  // Close menu after selecting a link (mobile UX)
+  nav.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => {
+      nav.classList.remove("mobile-open");
+      menuBtn.setAttribute("aria-expanded", "false");
     });
-  }
-});
+  });
+}
 
 // ================================
-// Lightbox (if you already added it)
+// Lightbox (only if you added HTML)
 // ================================
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
@@ -163,19 +172,20 @@ const closeBtn = document.querySelector(".lightbox .close");
 
 document.addEventListener("click", (e) => {
   const img = e.target;
-  if (img.tagName === "IMG" && img.closest(".card, .item, .product")) {
-    if (!lightbox || !lightboxImg) return;
+  if (
+    lightbox &&
+    lightboxImg &&
+    img &&
+    img.tagName === "IMG" &&
+    img.closest(".card, .item, .product")
+  ) {
     lightbox.style.display = "flex";
     lightboxImg.src = img.src;
   }
 });
 
-if (closeBtn) {
-  closeBtn.addEventListener("click", () => {
-    if (lightbox) lightbox.style.display = "none";
-  });
-}
-if (lightbox) {
+if (closeBtn && lightbox) {
+  closeBtn.addEventListener("click", () => (lightbox.style.display = "none"));
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) lightbox.style.display = "none";
   });
